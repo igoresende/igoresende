@@ -43,11 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculaDescontos.cs" />
     <Compile Include="CalculaImpostos.cs" />
+    <Compile Include="DescontoPorQuinhentosReais.cs" />
+    <Compile Include="DescontoPorCincoItens.cs" />
+    <Compile Include="DescontoPorVendaCasada.cs" />
     <Compile Include="ICMS.cs" />
+    <Compile Include="IDescontoChain.cs" />
     <Compile Include="IImpostoStrategy.cs" />
     <Compile Include="ISS.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Orcamento.cs" />
+    <Compile Include="SemDesconto.cs" />
     <Compile Include="TestDesignPatterns.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
