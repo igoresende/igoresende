@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns
 {
-    internal class Program
+    public interface IImpostoStrategy
     {
-        static void Main(string[] args)
-        {
-        }
+        double Calcula(Orcamento orcamento);
     }
 }
