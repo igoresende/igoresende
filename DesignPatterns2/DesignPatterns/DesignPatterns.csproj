@@ -52,7 +52,7 @@
     <Compile Include="TemplateMethod\ICPP.cs" />
     <Compile Include="Interfaces\IDescontoChain.cs" />
     <Compile Include="TemplateMethod\IHIT.cs" />
-    <Compile Include="Interfaces\IImposto.cs" />
+    <Compile Include="Decorator\Imposto.cs" />
     <Compile Include="TemplateMethod\IKCV.cs" />
     <Compile Include="Strategy\ISS.cs" />
     <Compile Include="Domain\Item.cs" />

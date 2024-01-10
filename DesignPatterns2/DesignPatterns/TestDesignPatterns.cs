@@ -23,8 +23,8 @@ namespace DesignPatterns
             * entre eles em diferentes pedaços da aplicação. 
             * Se é nítido que novas estratégias aparecerão, com certeza um Strategy é mais limpo do que um conjunto de ifs.
             */
-            IImposto iss = new ISS();
-            IImposto icms = new ICMS();
+            Imposto iss = new ISS();
+            Imposto icms = new ICMS();
             Orcamento orcamento = new Orcamento(500.0);
             CalculaImpostos calculador = new CalculaImpostos();
 
@@ -52,6 +52,14 @@ namespace DesignPatterns
             double desconto = d1.Desconta(orcamento);
             Console.WriteLine(desconto);
 
+        }
+
+        public static void TestaImpostoDecorator()
+        {
+            Imposto iss = new ISS(new ICMS());
+            Orcamento orcamento =new Orcamento(500);
+            double valor = iss.Calcula(orcamento);
+            Console.WriteLine(valor);
         }
     }
 }

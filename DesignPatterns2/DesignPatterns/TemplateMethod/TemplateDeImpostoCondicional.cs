@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns
 {
-    public abstract class TemplateDeImpostoCondicional : IImposto
+    public abstract class TemplateDeImpostoCondicional : Imposto
     {
-        public double Calcula(Orcamento orcamento)
+        public TemplateDeImpostoCondicional(Imposto outroImposto) : base(outroImposto) { } //Decorator para os impostos do Template Method
+        public TemplateDeImpostoCondicional() : base() { }
+        
+        public override double Calcula(Orcamento orcamento)
         {
             if (DeveUsarMaximaTaxacao(orcamento))
             {
