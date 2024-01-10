@@ -43,22 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculaDescontos.cs" />
-    <Compile Include="CalculaImpostos.cs" />
-    <Compile Include="DescontoPorQuinhentosReais.cs" />
-    <Compile Include="DescontoPorCincoItens.cs" />
-    <Compile Include="DescontoPorVendaCasada.cs" />
-    <Compile Include="ICMS.cs" />
-    <Compile Include="ICPP.cs" />
-    <Compile Include="IDescontoChain.cs" />
-    <Compile Include="IHIT.cs" />
-    <Compile Include="IImposto.cs" />
-    <Compile Include="IKCV.cs" />
-    <Compile Include="ISS.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Orcamento.cs" />
-    <Compile Include="SemDesconto.cs" />
-    <Compile Include="TemplateDeImpostoCondicional.cs" />
+    <Compile Include="ChainOfResponsability\CalculaDescontos.cs" />
+    <Compile Include="Strategy\CalculaImpostos.cs" />
+    <Compile Include="ChainOfResponsability\DescontoPorQuinhentosReais.cs" />
+    <Compile Include="ChainOfResponsability\DescontoPorCincoItens.cs" />
+    <Compile Include="ChainOfResponsability\DescontoPorVendaCasada.cs" />
+    <Compile Include="Strategy\ICMS.cs" />
+    <Compile Include="TemplateMethod\ICPP.cs" />
+    <Compile Include="Interfaces\IDescontoChain.cs" />
+    <Compile Include="TemplateMethod\IHIT.cs" />
+    <Compile Include="Interfaces\IImposto.cs" />
+    <Compile Include="TemplateMethod\IKCV.cs" />
+    <Compile Include="Strategy\ISS.cs" />
+    <Compile Include="Domain\Item.cs" />
+    <Compile Include="Domain\Orcamento.cs" />
+    <Compile Include="ChainOfResponsability\SemDesconto.cs" />
+    <Compile Include="TemplateMethod\TemplateDeImpostoCondicional.cs" />
     <Compile Include="TestDesignPatterns.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
