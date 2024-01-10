@@ -1,0 +1,7 @@
+C:\Users\carva\OneDrive\Documentos\CodeSource\DesignPatterns2\DesignPatterns\bin\Debug\DesignPatterns.exe.config
+C:\Users\carva\OneDrive\Documentos\CodeSource\DesignPatterns2\DesignPatterns\bin\Debug\DesignPatterns.exe
+C:\Users\carva\OneDrive\Documentos\CodeSource\DesignPatterns2\DesignPatterns\bin\Debug\DesignPatterns.pdb
+C:\Users\carva\OneDrive\Documentos\CodeSource\DesignPatterns2\DesignPatterns\obj\Debug\DesignPatterns.csproj.AssemblyReference.cache
+C:\Users\carva\OneDrive\Documentos\CodeSource\DesignPatterns2\DesignPatterns\obj\Debug\DesignPatterns.csproj.CoreCompileInputs.cache
+C:\Users\carva\OneDrive\Documentos\CodeSource\DesignPatterns2\DesignPatterns\obj\Debug\DesignPatterns.exe
+C:\Users\carva\OneDrive\Documentos\CodeSource\DesignPatterns2\DesignPatterns\obj\Debug\DesignPatterns.pdb
