@@ -18,21 +18,27 @@ namespace DesignPatterns
 
         public static void TesteDeImpostos() //Testing Strategy - Design Pattern
         {
-            
-                IImpostoStrategy iss = new ISS();
-                IImpostoStrategy icms = new ICMS();
-                Orcamento orcamento = new Orcamento(500.0);
-                CalculaImpostos calculador = new CalculaImpostos();
+            /*
+            * O padrão Strategy é muito útil quando temos um conjunto de algoritmos similares, e precisamos alternar 
+            * entre eles em diferentes pedaços da aplicação. 
+            * Se é nítido que novas estratégias aparecerão, com certeza um Strategy é mais limpo do que um conjunto de ifs.
+            */
+            IImposto iss = new ISS();
+            IImposto icms = new ICMS();
+            Orcamento orcamento = new Orcamento(500.0);
+            CalculaImpostos calculador = new CalculaImpostos();
 
-                // Calculando o ISS
-                calculador.RealizaCalculo(orcamento, iss);
+            // Calculando o ISS
+            calculador.RealizaCalculo(orcamento, iss);
 
-                // Calculando o ICMS        
-                calculador.RealizaCalculo(orcamento, icms);
-            
+            // Calculando o ICMS        
+            calculador.RealizaCalculo(orcamento, icms);
+
         }
+
         public static void TestaDescontos() // Testing Chain Of Responsability
         {
+
             IDescontoChain d1 = new DescontoPorCincoItens();
             IDescontoChain d2 = new DescontoPorMaisDeQuinhentosReais();
             IDescontoChain d3 = new DescontoPorVendaCasada();

@@ -8,7 +8,7 @@ namespace DesignPatterns
 {
     public class CalculaImpostos
     {
-        public void RealizaCalculo(Orcamento orcamento, IImpostoStrategy imposto) 
+        public void RealizaCalculo(Orcamento orcamento, IImposto imposto) 
         {
             double valor = imposto.Calcula(orcamento);
             Console.WriteLine(valor);

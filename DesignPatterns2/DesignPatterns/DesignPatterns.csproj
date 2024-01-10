@@ -49,12 +49,16 @@
     <Compile Include="DescontoPorCincoItens.cs" />
     <Compile Include="DescontoPorVendaCasada.cs" />
     <Compile Include="ICMS.cs" />
+    <Compile Include="ICPP.cs" />
     <Compile Include="IDescontoChain.cs" />
-    <Compile Include="IImpostoStrategy.cs" />
+    <Compile Include="IHIT.cs" />
+    <Compile Include="IImposto.cs" />
+    <Compile Include="IKCV.cs" />
     <Compile Include="ISS.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Orcamento.cs" />
     <Compile Include="SemDesconto.cs" />
+    <Compile Include="TemplateDeImpostoCondicional.cs" />
     <Compile Include="TestDesignPatterns.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

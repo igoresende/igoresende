@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns
 {
-    public class ISS : IImpostoStrategy
+    public class ISS : IImposto
     {
         public double Calcula(Orcamento orcamento)
         {
