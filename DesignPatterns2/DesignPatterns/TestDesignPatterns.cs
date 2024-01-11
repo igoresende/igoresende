@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DesignPatterns.Domain;
+using DesignPatterns.Observer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,6 +16,10 @@ namespace DesignPatterns
         {
             //TesteDeImpostos();
             //TestaDescontos();
+            //TestaImpostoDecorator();
+            //TestesDoDescontoExtraState();
+            //TestaBuilder();
+            //TestaAcaoObserver();
         }
 
         public static void TesteDeImpostos() //Testing Strategy - Design Pattern
@@ -57,9 +63,61 @@ namespace DesignPatterns
         public static void TestaImpostoDecorator()
         {
             Imposto iss = new ISS(new ICMS());
-            Orcamento orcamento =new Orcamento(500);
+            Orcamento orcamento = new Orcamento(500);
             double valor = iss.Calcula(orcamento);
             Console.WriteLine(valor);
+        }
+
+        public static void TestesDoDescontoExtraState() //DesignPattern State
+        {
+            Orcamento reforma = new Orcamento(500.0);
+
+            reforma.AplicaDescontoExtra();
+            Console.WriteLine(reforma.Valor); // imprime 475,00 pois descontou 5%
+            reforma.Aprova(); // aprova nota!
+
+            reforma.AplicaDescontoExtra();
+            Console.WriteLine(reforma.Valor); // imprime 465,50 pois descontou 2%
+
+            reforma.Finaliza();
+
+            // reforma.AplicaDescontoExtra(); lancaria excecao, pois não pode dar desconto nesse estado
+            // reforma.Aprova(); lança exceção, pois não pode ir para aprovado
+
+        }
+        public static void TestaBuilder()
+        {
+
+            NotaFiscalBuilder nfBuilder = new NotaFiscalBuilder().ParaEmpresa("Caelum")
+                              .ComCnpj("123.456.789/0001-10")
+                              .Com(new ItemDaNota("item 1", 100.0))
+                              .Com(new ItemDaNota("item 2", 200.0))
+                              .Com(new ItemDaNota("item 3", 300.0))
+                              .ComObservacoes("entregar nf pessoalmente")
+                              .NaDataAtual();
+
+            NotaFiscal notaFiscal = nfBuilder.Constroi();
+
+        }
+        public static void TestaAcaoObserver()
+        {
+
+            NotaFiscalBuilder builder = new NotaFiscalBuilder();
+            builder.AdicionaAcao(new EnviadorDeEmail());
+            builder.AdicionaAcao(new NotaFiscalDAO());
+            builder.AdicionaAcao(new EnviadorDeSms());
+            builder.AdicionaAcao(new Impressora());
+            builder.AdicionaAcao(new Multiplicador(2));
+
+            NotaFiscal notaFiscal = builder.ParaEmpresa("Caelum")
+                                .ComCnpj("123.456.789/0001-10")
+                                .Com(new ItemDaNota("item 1", 100.0))
+                                .Com(new ItemDaNota("item 2", 200.0))
+                                .Com(new ItemDaNota("item 3", 300.0))
+                                .ComObservacoes("nao entregar notaFiscal pessoalmente")
+                                .NaDataAtual()
+                                .Constroi();
+
         }
     }
 }
