@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.Domain;
+using DesignPatterns.Observer;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,7 +18,8 @@ namespace DesignPatterns
             //TestaDescontos();
             //TestaImpostoDecorator();
             //TestesDoDescontoExtraState();
-
+            //TestaBuilder();
+            //TestaAcaoObserver();
         }
 
         public static void TesteDeImpostos() //Testing Strategy - Design Pattern
@@ -95,7 +97,27 @@ namespace DesignPatterns
                               .NaDataAtual();
 
             NotaFiscal notaFiscal = nfBuilder.Constroi();
-          
+
+        }
+        public static void TestaAcaoObserver()
+        {
+
+            NotaFiscalBuilder builder = new NotaFiscalBuilder();
+            builder.AdicionaAcao(new EnviadorDeEmail());
+            builder.AdicionaAcao(new NotaFiscalDAO());
+            builder.AdicionaAcao(new EnviadorDeSms());
+            builder.AdicionaAcao(new Impressora());
+            builder.AdicionaAcao(new Multiplicador(2));
+
+            NotaFiscal notaFiscal = builder.ParaEmpresa("Caelum")
+                                .ComCnpj("123.456.789/0001-10")
+                                .Com(new ItemDaNota("item 1", 100.0))
+                                .Com(new ItemDaNota("item 2", 200.0))
+                                .Com(new ItemDaNota("item 3", 300.0))
+                                .ComObservacoes("nao entregar notaFiscal pessoalmente")
+                                .NaDataAtual()
+                                .Constroi();
+
         }
     }
 }

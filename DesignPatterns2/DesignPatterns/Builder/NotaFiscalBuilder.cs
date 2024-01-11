@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignPatterns.Observer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,8 +64,27 @@ namespace DesignPatterns.Domain
 
         public NotaFiscal Constroi()
         {
-            return new NotaFiscal(RazaoSocial, Cnpj, Data, ValorTotal,
-                                Impostos, TodosItens, Observacoes);
+            //return new NotaFiscal(RazaoSocial, Cnpj, Data, ValorTotal,
+            //                    Impostos, TodosItens, Observacoes);
+            NotaFiscal notaFiscal = new NotaFiscal(RazaoSocial, Cnpj,Data, ValorTotal, Impostos, TodosItens, Observacoes);
+
+            foreach (IAcaoAposGerarNota acao in todasAcoesASeremExecutadas)
+            {
+                acao.Executa(notaFiscal);
+            }
+            return notaFiscal;
+        }
+
+        private IList<IAcaoAposGerarNota> todasAcoesASeremExecutadas;
+
+        public NotaFiscalBuilder()
+        {
+            this.todasAcoesASeremExecutadas = new List<IAcaoAposGerarNota>();
+        }
+
+        public void AdicionaAcao(IAcaoAposGerarNota novaAcao)
+        {
+            this.todasAcoesASeremExecutadas.Add(novaAcao);
         }
     }
 }

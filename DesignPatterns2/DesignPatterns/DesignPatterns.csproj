@@ -48,6 +48,12 @@
     <Compile Include="Domain\ItemDaNota.cs" />
     <Compile Include="Domain\NotaFiscal.cs" />
     <Compile Include="Builder\NotaFiscalBuilder.cs" />
+    <Compile Include="Observer\EnviadorDeEmail.cs" />
+    <Compile Include="Observer\EnviadorDeSms.cs" />
+    <Compile Include="Observer\IAcaoAposGerarNota.cs" />
+    <Compile Include="Observer\Impressora.cs" />
+    <Compile Include="Observer\Multiplicador.cs" />
+    <Compile Include="Observer\NotaFiscalDAO.cs" />
     <Compile Include="State\Aprovado.cs" />
     <Compile Include="State\EmAprovacao.cs" />
     <Compile Include="State\Finalizado.cs" />
