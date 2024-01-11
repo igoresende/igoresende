@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\ItemDaNotaBuilder.cs" />
     <Compile Include="ChainOfResponsability\CalculaDescontos.cs" />
+    <Compile Include="Domain\ItemDaNota.cs" />
+    <Compile Include="Domain\NotaFiscal.cs" />
+    <Compile Include="Builder\NotaFiscalBuilder.cs" />
     <Compile Include="State\Aprovado.cs" />
     <Compile Include="State\EmAprovacao.cs" />
     <Compile Include="State\Finalizado.cs" />
