@@ -1,13 +1,16 @@
-﻿using DesignPatterns2.Bridge;
+﻿using DesignPatterns2.Adapter;
+using DesignPatterns2.Bridge;
+using DesignPatterns2.Command;
+using DesignPatterns2.Facade;
 using DesignPatterns2.Factory;
 using DesignPatterns2.Flyweight;
 using DesignPatterns2.Interpreter;
 using DesignPatterns2.Memento;
+using DesignPatterns2.Singleton;
 using DesignPatterns2.Visitor;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq.Expressions;
 
 namespace DesignPatterns2
 {
@@ -15,9 +18,13 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
+            //TestConnectionFactory();
             //TestNotasMusicaisFlyweight();
             TestHistoricoMemento();
             TestExpressionInterpreter();
+            //TestSendMessageDpBridge();
+            //TestOrderCommand();
+            //TestXmlAdapter();
             Console.WriteLine("Studying Design Patterns!");
         }
 
@@ -95,8 +102,38 @@ namespace DesignPatterns2
             messageSecond.Sender = senderSecond;
 
             messageSecond.Send();
+        }
+        public static void TestOrderCommand() 
+        {
+            Order order1 = new Order("Igor", 150.0);
+            Order order2 = new Order("Resende", 250.0);
+            
+            WorkQueue fila = new WorkQueue();
 
+            fila.Adiciona(new PayOrder(order1));
+            fila.Adiciona(new PayOrder(order2));
+            fila.Adiciona(new FinishOrder(order1));
 
+            fila.Processa();
+        }
+        public static void TestXmlAdapter() 
+        {
+            Client client = new Client();
+            client.Name = "Igor";
+            client.Address = "48, Cmt Miranda St";
+            client.BirthDate= DateTime.Now;
+
+            String xml = new XmlGeneratorAdapter().GenerateXml(client);
+            Console.WriteLine(xml);
+        }
+        public static void TestFacadeSingleton() 
+        {
+            string cpf = "12345";
+            CompanyFacade facade = new CompanyFacadeSingleton().Instance;
+            Client client = facade.SearchClient(cpf);
+
+            var bill = facade.CreateInvoice(client, 3000);
+            facade.GenerateCharge(bill);
         }
     }
 }
