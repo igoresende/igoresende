@@ -1,10 +1,12 @@
 ﻿using DesignPatterns2.Adapter;
 using DesignPatterns2.Bridge;
 using DesignPatterns2.Command;
+using DesignPatterns2.Facade;
 using DesignPatterns2.Factory;
 using DesignPatterns2.Flyweight;
 using DesignPatterns2.Interpreter;
 using DesignPatterns2.Memento;
+using DesignPatterns2.Singleton;
 using DesignPatterns2.Visitor;
 using System;
 using System.Collections.Generic;
@@ -123,6 +125,15 @@ namespace DesignPatterns2
 
             String xml = new XmlGeneratorAdapter().GenerateXml(client);
             Console.WriteLine(xml);
+        }
+        public static void TestFacadeSingleton() 
+        {
+            string cpf = "12345";
+            CompanyFacade facade = new CompanyFacadeSingleton().Instance;
+            Client client = facade.SearchClient(cpf);
+
+            var bill = facade.CreateInvoice(client, 3000);
+            facade.GenerateCharge(bill);
         }
     }
 }
