@@ -12,7 +12,7 @@ namespace Alura.Adopet.API.Dados.Context
         {
             optionsBuilder.LogTo(Console.WriteLine);
         }   
-        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Client> Clientes { get; set; }
         public DbSet<Pet> Pets { get; set; }
 
     }

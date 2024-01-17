@@ -1,4 +1,6 @@
-﻿using Alura.Adopet.Console.Servicos.Arquivos;
+﻿using Alura.Adopet.Console.Modelos;
+using Alura.Adopet.Console.Services.Files;
+using Alura.Adopet.Console.Servicos.Arquivos;
 
 namespace Alura.Adopet.Testes.Servicos;
 public class FileReaderFactoryTest
@@ -13,7 +15,7 @@ public class FileReaderFactoryTest
         var leitor = FilesReaderFactory.CreatePetFrom(caminhoArquivo);
 
         // assert
-        Assert.IsType<FilesReaderCsv>(leitor);
+        Assert.IsType<PetCSV>(leitor);
     }
 
     [Fact]
@@ -26,7 +28,7 @@ public class FileReaderFactoryTest
         var leitor = FilesReaderFactory.CreatePetFrom(caminhoArquivo);
 
         // assert
-        Assert.IsType<FilesReaderJson>(leitor);
+        Assert.IsType<FilesReaderJson<Pet>>(leitor);
     }
 
     [Fact]

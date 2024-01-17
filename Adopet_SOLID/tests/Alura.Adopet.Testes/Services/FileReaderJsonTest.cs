@@ -40,7 +40,7 @@ public class FileReaderJsonTest : IDisposable
     {
         //Arrange            
         //Act
-        var listaDePets = new FilesReaderJson(caminhoArquivo).DoRead()!;
+        var listaDePets = new FilesReaderJson<Pet>(caminhoArquivo).DoRead()!;
         //Assert
         Assert.NotNull(listaDePets);
         Assert.IsType<List<Pet>?>(listaDePets);
