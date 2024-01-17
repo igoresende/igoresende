@@ -1,4 +1,5 @@
 ﻿using Alura.Adopet.Console.Modelos;
+using Alura.Adopet.Console.Services.Files;
 using Alura.Adopet.Console.Servicos.Arquivos;
 
 namespace Alura.Adopet.Testes.Servicos;
@@ -22,7 +23,7 @@ public class FileReaderCsvTest : IDisposable
     {
         //Arrange            
         //Act
-        var listaDePets = new FilesReaderCsv(caminhoArquivo).DoRead()!;
+        var listaDePets = new PetCSV(caminhoArquivo).DoRead()!;
         //Assert
         Assert.NotNull(listaDePets);
         Assert.Single(listaDePets);
@@ -34,7 +35,7 @@ public class FileReaderCsvTest : IDisposable
     {
         //Arrange            
         //Act
-        var listaDePets = new FilesReaderCsv("").DoRead();
+        var listaDePets = new PetCSV("").DoRead();
         //Assert
         Assert.Null(listaDePets);
     }
@@ -44,7 +45,7 @@ public class FileReaderCsvTest : IDisposable
     {
         //Arrange            
         //Act
-        var listaDePets = new FilesReaderCsv(null).DoRead();
+        var listaDePets = new PetCSV(null).DoRead();
         //Assert
         Assert.Null(listaDePets);
     }

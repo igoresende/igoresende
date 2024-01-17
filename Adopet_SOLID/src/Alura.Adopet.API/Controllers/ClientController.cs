@@ -10,7 +10,7 @@ using System.IO;
 namespace Alura.Adopet.API.Controladores
 {
     [ApiController]
-    [Route("/cliente/")]
+    [Route("/client/")]
     public class ClientController : ControllerBase
     {
 
@@ -44,7 +44,7 @@ namespace Alura.Adopet.API.Controladores
 
         [HttpPost]
         [Route("add")]
-        public async Task<IResult> CadatrarClientes([FromBody] Cliente cliente)
+        public async Task<IResult> CadatrarClientes([FromBody] Client cliente)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)

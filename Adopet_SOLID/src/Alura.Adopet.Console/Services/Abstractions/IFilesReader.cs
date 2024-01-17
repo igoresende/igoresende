@@ -1,7 +1,5 @@
-﻿using Alura.Adopet.Console.Modelos;
-
-namespace Alura.Adopet.Console.Servicos.Abstracoes;
-public interface IFilesReader
+﻿namespace Alura.Adopet.Console.Servicos.Abstracoes;
+public interface IFilesReader<T>
 {
-    IEnumerable<Pet> DoRead();
+    IEnumerable<T> DoRead();
 }

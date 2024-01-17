@@ -2,16 +2,16 @@
 
 namespace Alura.Adopet.API.Dominio
 {
-    public class Cliente
+    public class Client
     {
-        public Cliente()
+        public Client()
         {
             Id = Guid.NewGuid();
         }
 
         [Key]
         public Guid Id { get; set; }
-        public string Nome { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public string CPF { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         

@@ -13,10 +13,10 @@ namespace Alura.Adopet.API.Service
 
         public void GenerateFakeDate()
         {
-            var proprietario = new Cliente()
+            var proprietario = new Client()
             {
                 CPF = "111.111.111-22",
-                Nome = "André",
+                Name = "André",
                 Email = "andre@email.com"
             };
             _context.Add(proprietario);

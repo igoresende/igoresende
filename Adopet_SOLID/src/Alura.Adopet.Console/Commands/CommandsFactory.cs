@@ -15,13 +15,19 @@ public static class CommandsFactory
         switch (command)
         {
             case "import":
-                var httpClientPet = new HttpClientPet(new AdopetAPIClientFactory().CreateClient("adopet"));
+                var httpClientPet = new PetService(new AdopetAPIClientFactory().CreateClient("adopet"));
                 var filesReader = FilesReaderFactory.CreatePetFrom(arguments[1]);
                 if (filesReader is null) { return null; }
                 return new Import(httpClientPet, filesReader);
 
+            case "import-clients":
+                var service = new PetService(new AdopetAPIClientFactory().CreateClient("adopet"));
+                var filesReaderClient = FilesReaderFactory.CreatePetFrom(arguments[1]);
+                if (filesReaderClient is null) { return null; }
+                return new Import(service, filesReaderClient);
+
             case "list":
-                var httpClientPetList = new HttpClientPet(new AdopetAPIClientFactory().CreateClient("adopet"));
+                var httpClientPetList = new PetService(new AdopetAPIClientFactory().CreateClient("adopet"));
                 return new List(httpClientPetList);
 
             case "show":
