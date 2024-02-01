@@ -6,8 +6,8 @@ using Alura.Adopet.Console.Modelos;
 
 namespace Alura.Adopet.Console.Comandos
 {
-    [DocComandoAttribute(instrucao: "import",
-        documentacao: "adopet import <ARQUIVO> comando que realiza a importação do arquivo de pets.")]
+    [DocComandoAttribute(instruction: "import",
+        document: "adopet import <ARQUIVO> comando que realiza a importação do arquivo de pets.")]
     public class Import:ICommand
     {
         private readonly IApiService<Pet> clientPet;

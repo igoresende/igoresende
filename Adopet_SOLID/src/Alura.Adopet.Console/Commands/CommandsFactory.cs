@@ -1,5 +1,7 @@
 ﻿using Alura.Adopet.Console.Servicos.Http;
 using Alura.Adopet.Console.Servicos.Arquivos;
+using System.Reflection;
+using Alura.Adopet.Console.Extensions;
 
 namespace Alura.Adopet.Console.Comandos;
 
@@ -12,6 +14,7 @@ public static class CommandsFactory
             return null;
         }
         var command = arguments[0];
+        Type? type = Assembly.GetExecutingAssembly().GetTypeCommand(command);
         switch (command)
         {
             case "import":

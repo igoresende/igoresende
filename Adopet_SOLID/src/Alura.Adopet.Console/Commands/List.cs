@@ -6,8 +6,8 @@ using Alura.Adopet.Console.Servicos.Abstracoes;
 
 namespace Alura.Adopet.Console.Comandos
 {
-    [DocComandoAttribute(instrucao: "list",
-      documentacao: "adopet list comando que exibe no terminal o conteúdo cadastrado na base de dados da AdoPet.")]
+    [DocComandoAttribute(instruction: "list",
+      document: "adopet list comando que exibe no terminal o conteúdo cadastrado na base de dados da AdoPet.")]
     public class List: ICommand
     {
         private readonly IApiService<Pet> clientPet;

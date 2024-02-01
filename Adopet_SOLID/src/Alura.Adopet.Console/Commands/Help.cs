@@ -6,8 +6,8 @@ using System.Reflection;
 
 namespace Alura.Adopet.Console.Comandos
 {
-    [DocComandoAttribute(instrucao: "help",
-     documentacao: "adopet help comando que exibe informações da ajuda. \n" +
+    [DocComandoAttribute(instruction: "help",
+     document: "adopet help comando que exibe informações da ajuda. \n" +
         "adopet help <NOME_COMANDO> para acessar a ajuda de um comando específico.")]
     public class Help:ICommand
     {
@@ -40,7 +40,7 @@ namespace Alura.Adopet.Console.Comandos
             {
                 foreach (var doc in docs.Values)
                 {
-                    resultado.Add(doc.Documentacao);
+                    resultado.Add(doc.Document);
                 }
             }
             // exibe o help daquele comando específico
@@ -49,7 +49,7 @@ namespace Alura.Adopet.Console.Comandos
                 if (docs.ContainsKey(this.comando))
                 {
                     var comando = docs[this.comando];
-                    resultado.Add(comando.Documentacao);
+                    resultado.Add(comando.Document);
                 }
                 else
                 {

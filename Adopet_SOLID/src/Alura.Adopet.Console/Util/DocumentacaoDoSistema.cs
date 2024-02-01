@@ -10,6 +10,6 @@ public class DocumentacaoDoSistema
         return assemblyComOTipoDocComando.GetTypes()
          .Where(t => t.GetCustomAttributes<DocComandoAttribute>().Any())
          .Select(t => t.GetCustomAttribute<DocComandoAttribute>()!)
-         .ToDictionary(d => d.Instrucao);
+         .ToDictionary(d => d.Instruction);
     }
 }

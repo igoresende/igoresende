@@ -3,12 +3,12 @@
 [AttributeUsage(AttributeTargets.Class)]
 public sealed class DocComandoAttribute : Attribute
 {
-    public DocComandoAttribute(string instrucao, string documentacao)
+    public DocComandoAttribute(string instruction, string document)
     {
-        Instrucao = instrucao;
-        Documentacao = documentacao;
+        Instruction = instruction;
+        Document = document;
     }
 
-    public string Instrucao { get; }
-    public string Documentacao { get; }
+    public string Instruction { get; }
+    public string Document { get; }
 }

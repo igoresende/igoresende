@@ -7,8 +7,8 @@ using ICommand = Alura.Adopet.Console.Comandos.ICommand;
 
 namespace Alura.Adopet.Console.Commands
 {
-    [DocComandoAttribute(instrucao: "import-clients",
-        documentacao: "adopet import-clients <ARQUIVO> comando que realiza a importação do arquivo de clients.")]
+    [DocComandoAttribute(instruction: "import-clients",
+        document: "adopet import-clients <ARQUIVO> comando que realiza a importação do arquivo de clients.")]
     public class ImportClients : ICommand
     {
         private IApiService<Client> apiService;
